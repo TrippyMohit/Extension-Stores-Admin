@@ -1,11 +1,16 @@
 import Store from "../schema/store-schema.js";
 
 export const addStore = async (request, response) => {
+  const { storeName, storeUrl, affilatedStore, affilateLink, time } =
+    request.body;
   const store = request.body;
-
   // Create new Store
   const newStore = new Store(store);
   try {
+    const store = await Store.findOne({ storeName });
+    if (store) {
+      return response.status(400).json({ message: "storeName already exists" });
+    }
     await newStore.save();
     response.status(201).json(newStore);
   } catch (error) {
@@ -35,7 +40,6 @@ export const getStoreById = async (request, response) => {
 };
 
 // Save data from edited store in the database
-
 export const editStore = async (request, response) => {
   let store = request.body;
   const editStore = new Store(store);

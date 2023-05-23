@@ -11,9 +11,23 @@ import {
   loginUser,
   verfiyToken,
 } from "../controller/user-controller.js";
-import {} from "../controller/user-controller.js";
-
+import {
+  getSwitches,
+  addSwtiches,
+  toggleSwtichOne,
+  toggleSwtichTwo,
+  toggleSwtichThree,
+  toggleSwtichFour,
+} from "../controller/switch-controller.js";
 const router = express.Router();
+
+//Switch routes
+router.post("/addSwtiches", addSwtiches);
+router.get("/allSwitches", getSwitches);
+router.put("/switchOne", toggleSwtichOne);
+router.put("/switchTwo", toggleSwtichTwo);
+router.put("/switchThree", toggleSwtichThree);
+router.put("/switchFour", toggleSwtichFour);
 
 //Users routes
 router.post("/register", registerUser);
