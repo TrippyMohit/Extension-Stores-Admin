@@ -13,6 +13,7 @@ import {
 } from "../controller/user-controller.js";
 import {
   getSwitches,
+  turnOffAllSwitches,
   addSwtiches,
   toggleSwtichOne,
   toggleSwtichTwo,
@@ -23,6 +24,7 @@ const router = express.Router();
 
 //Switch routes
 router.post("/addSwtiches", addSwtiches);
+router.put("/turnOfAllSwitches", turnOffAllSwitches);
 router.get("/allSwitches", getSwitches);
 router.put("/switchOne", toggleSwtichOne);
 router.put("/switchTwo", toggleSwtichTwo);

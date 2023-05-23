@@ -37,6 +37,24 @@ export const getSwitches = async (request, response) => {
   }
 };
 
+//turn false to all switches
+export const turnOffAllSwitches = async (request, response) => {
+  try {
+    const filter = { _id: "6468ae89ffe7e4076bb1b45d" };
+    const existingSwitches = await Swtich.findOne(filter);
+    const updatedSwitches = {
+      switchOne: false,
+      switchTwo: false,
+      switchThree: false,
+      switchFour: false,
+    };
+    await Swtich.updateOne(filter, updatedSwitches);
+    return response.json(updatedSwitches);
+  } catch (error) {
+    return response.status(500).json({ message: error.message });
+  }
+};
+
 //switchOne toggle
 export const toggleSwtichOne = async (request, response) => {
   try {
