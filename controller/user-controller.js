@@ -43,7 +43,7 @@ export const loginUser = async (request, response) => {
 export const verfiyToken = (request, response, next) => {
   const authHeader = request.headers.authorization;
   if (authHeader) {
-    jwt.verfiy(authHeader, process.env.SECRETKEY, (err) => {
+    jwt.verfiy(authHeader, TXlTZWNyZXRTdHJpbmc, (err) => {
       if (err) {
         return response.sendStatus(403);
       }
