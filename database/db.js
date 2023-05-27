@@ -3,10 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const Connection = async () => {
-  // const URL = process.env.MONGOURI;
-  const URL =
-    "mongodb+srv://mohit:mohit0000@extension-stores-admin.4nrsm42.mongodb.net/?retryWrites=true&w=majority";
-
+  const URL = process.env.MONGOURI;
   try {
     await mongoose.connect(URL, {
       useUnifiedTopology: true,
