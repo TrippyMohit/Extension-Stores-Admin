@@ -13,24 +13,46 @@ import {
 } from "../controller/user-controller.js";
 import {
   getSwitches,
-  turnOffAllSwitches,
   addSwtiches,
+  turnOffAllSwitches,
   toggleSwtichOne,
   toggleSwtichTwo,
   toggleSwtichThree,
   toggleSwtichFour,
+  offAllSwTrueAdblocker,
+  toggleSwOneTADB,
+  toggleSwTwoTADB,
+  toggleSwThreeTADB,
+  toggleSwFourTADB,
+  offAllSwOttParty,
+  toggleSwOneOttParty,
+  toggleSwTwoOttParty,
+  toggleSwThreeOttParty,
+  toggleSwFourOttParty,
 } from "../controller/switch-controller.js";
 const router = express.Router();
 
 //Switch routes
 router.post("/addSwtiches", addSwtiches);
-router.put("/turnOfAllSwitches", turnOffAllSwitches);
 router.get("/allSwitches", getSwitches);
+//NPD
+router.put("/turnOfAllSwitches", turnOffAllSwitches);
 router.put("/switchOne", toggleSwtichOne);
 router.put("/switchTwo", toggleSwtichTwo);
 router.put("/switchThree", toggleSwtichThree);
 router.put("/switchFour", toggleSwtichFour);
-
+//True adblocker
+router.put("/offAllSwTrueAdblocker", offAllSwTrueAdblocker);
+router.put("/toggleSwOneTADB", toggleSwOneTADB);
+router.put("/toggleSwTwoTADB", toggleSwTwoTADB);
+router.put("/toggleSwThreeTADB", toggleSwThreeTADB);
+router.put("/toggleSwFourTADB", toggleSwFourTADB);
+//OTT Party
+router.put("/offAllSwOttParty", offAllSwOttParty);
+router.put("/toggleSwOneOttParty", toggleSwOneOttParty);
+router.put("/toggleSwTwoOttParty", toggleSwTwoOttParty);
+router.put("/toggleSwThreeOttParty", toggleSwThreeOttParty);
+router.put("/toggleSwFourOttParty", toggleSwFourOttParty);
 //Users routes
 router.post("/register", registerUser);
 router.post("/login", loginUser);
